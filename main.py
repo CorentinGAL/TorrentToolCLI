@@ -7,7 +7,7 @@ def create_torrent():
     global tracker2
     global torrent_file
     global nom
-    file = input("Entrez le chemin vers le fichier à partager \n")
+    file = input("Entrez le chemin vers le fichier à partager sans les guillemets \n")
     tracker = input("Entrez le tracker \n")
     ts = input("Avez vous un autre tracker ? (oui/non) \n")
     if ts == "oui":
