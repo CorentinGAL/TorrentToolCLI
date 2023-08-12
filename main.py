@@ -11,12 +11,11 @@ def verifier_dependance():
     if check == 1:
         print("Les dépendances sont bien installées")
         subprocess.check_call(["python", "create_torrent.py"])
-
     else:
         inst = input("Les dépences ne sont pas installées, voulez vous les installées (oui/non)?\n")
         if inst == "oui":
             subprocess.check_call(["pip", "install", "torrentool"])
-            subprocess.check_call(["py", "create_torrent.py"])
+            subprocess.check_call(["python", "create_torrent.py"])
         else:
             print("Installer torrentool avec pip manuellement")
             exit()
