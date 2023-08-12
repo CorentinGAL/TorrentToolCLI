@@ -1,0 +1,1 @@
+Lancez le fichier main.py dans le Terminal
