@@ -1,4 +1,26 @@
+import pkgutil
+import subprocess
 from torrentool.api import Torrent
+
+
+def verifier_dependance():
+    check = 0
+    if pkgutil.find_loader("torrentool") is not None:
+        check = 1
+    else:
+        check = 0
+    if check == 1:
+        print("Les dépendances sont bien installées")
+        create_torrent()
+    else:
+        inst = input("Les dépences ne sont pas installées, voulez vous les installées (oui/non)?\n")
+        if inst == "oui":
+            subprocess.check_call(["pip", "install", "torrentool"])
+            create_torrent()
+        else:
+            print("Installer torrentool avec pip manuellement")
+            exit()
+
 
 def create_torrent():
     global file
@@ -19,10 +41,9 @@ def create_torrent():
     recap()
 
 
-
 def recap():
     print("Les informations sont elles corrects ?\n")
-    print(file,"\n",tracker,"\n",tracker2,"\n","Nom du torrent : ",nom)
+    print(file, "\n", tracker, "\n", tracker2, "\n", "Nom du torrent : ", nom)
     verif = input("Tout est correct ? (oui ou non)\n")
     if verif == "oui":
         new_torrent = Torrent.create_from(file)
@@ -35,4 +56,4 @@ def recap():
         create_torrent()
 
 
-create_torrent()
+verifier_dependance()
