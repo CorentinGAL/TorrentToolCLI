@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 TorrentToolCLIv1.zip
+INSTRUCTIONS.txt
+TorrentToolCLI.zip
