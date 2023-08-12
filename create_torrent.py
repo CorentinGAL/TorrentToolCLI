@@ -37,4 +37,4 @@ def recap():
         create_torrent()
 
 
-verifier_dependance()
+create_torrent()
